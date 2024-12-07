@@ -21,12 +21,11 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.g.clipboard = "unnamedplus"
 -- Setup lazy.nvim
-require("lazy").setup({
-  spec = {
-    { import = "plugins" },
-  },
--- checker = { enabled = true },
-})
 
+require("lazy").setup({
+	{ import = "plugins" },
+	{ import = "plugins.lsp"}
+})
 -- Chose theme
 vim.cmd[[colorscheme tokyonight]]
+
