@@ -17,7 +17,8 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup lazy.nvim
 require("lazy").setup({
 	{ import = "plugins" },
-	{ import = "plugins.lsp"}
+	{ import = "plugins.lsp"},
+	{ import = "plugins.snippets"}
 })
 -- Chose theme
 vim.cmd[[colorscheme tokyonight]]
