@@ -9,6 +9,10 @@ vim.opt.showmode = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.breakindent = true
 vim.opt.signcolumn = "yes"
+vim.opt.showtabline = 0
+
+vim.opt.ruler = true
+vim.opt.laststatus = 0
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {

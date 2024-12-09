@@ -1,10 +1,19 @@
 return {
- "folke/tokyonight.nvim",
-  lazy = false,
-  priority = 1000,
-  opts = {},
+	"folke/tokyonight.nvim",
+	lazy = false,
+	priority = 1000,
+	opts = {},
 	{
-	 "EdenEast/nightfox.nvim",
-		lazy = false
-	}
+		"shrikecode/kyotonight.vim",
+		lazy = false,
+	},
+	{
+		"baliestri/aura-theme",
+		lazy = false,
+		priority = 1000,
+		config = function(plugin)
+			-- vim.opt.rtp:append(plugin.dir .. "/packages/neovim")
+			-- vim.cmd([[colorscheme aura-dark]])
+		end,
+	},
 }
