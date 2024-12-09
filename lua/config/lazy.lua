@@ -21,5 +21,5 @@ require("lazy").setup({
 	{ import = "plugins.snippets"}
 })
 -- Chose theme
-vim.cmd[[colorscheme tokyonight]]
+vim.cmd[[colorscheme nightfox]]
 
