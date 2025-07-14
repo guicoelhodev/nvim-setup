@@ -31,4 +31,7 @@ vim.keymap.set("n", "<C-s>", ":w<CR>")
 
 vim.keymap.set("x", "P", '"_dP')
 
+-- Open sessions with tmux and telescope
+
+vim.keymap.set("n", "<C-i>", ":Telescope tmux sessions<CR>")
 return {}
