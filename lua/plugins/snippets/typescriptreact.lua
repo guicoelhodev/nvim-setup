@@ -126,14 +126,13 @@ ls.add_snippets('typescriptreact', {
     'mkcomp', -- make component
     fmt(
       [[
-import {{ FC }} from 'react';
-
 type T{} = {{}};
 
 export function {}(props:T{}) {{
+	console.log('props', props)
   return (
     <div>
-      {}
+      <p>{}</p>
     </div>
   );
 }};
