@@ -19,7 +19,7 @@ mv nvim ~/.config/nvim
 
 First of all, go to nvim releases and download **AppImage**
 
-[https://github.com/neovim/neovim/releases]('neovim-releases')
+[https://github.com/neovim/neovim/releases](https://github.com/neovim/neovim/releases)
 
 1.  Download nvim-linux-x86_64.appimage
 2.  Run `chmod u+x nvim-linux-x86_64.appimage && ./nvim-linux-x86_64.appimage`
