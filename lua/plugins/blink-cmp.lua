@@ -12,7 +12,6 @@ blink.setup({
 		documentation = { auto_show = false },
 		ghost_text = { enabled = false },
 		commit_character_behavior = 'auto',
-		accept = {}
 	},
 	sources = {
 		default = { "lsp", "path", "snippets", "buffer" },
