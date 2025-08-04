@@ -2,20 +2,18 @@ require('config.options')
 require('config.lsp')
 require('config.keymap')
 
-vim.pack.add({
-  	{ src = 'https://github.com/neovim/nvim-lspconfig' },
-	{ src = 'https://github.com/mason-org/mason.nvim' },
-  	{ src = 'https://github.com/mason-org/mason-lspconfig.nvim' },
-	{ src = 'https://github.com/folke/tokyonight.nvim'}
-})
+-- load all files into lua/plugins/*.lua
 
+local cfg = vim.fn.stdpath("config")
+local plugin_folder = cfg .. "/lua/plugins"
 
-vim.cmd[[colorscheme tokyonight-night]]
+local files = vim.fn.readdir(plugin_folder, [[v:val =~ '\.lua$']])
+for _, fname in ipairs(files) do
+	local mod = "plugins." .. fname:gsub("%.lua$", "")
+	local ok, _ = pcall(require, mod)
+	if not ok then
+		vim.notify("Error to run: " .. mod, vim.log.levels.ERROR)
+	end
+end
 
 require("mason").setup()
-
-require("mason-lspconfig").setup({
-  ensure_installed = { 'lua_ls', 'ts_ls' },
-  automatic_enable = true,
-})
-
