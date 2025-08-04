@@ -2,6 +2,18 @@ require('config.options')
 require('config.lsp')
 require('config.keymap')
 
+
+
+
+
+
+
+
+
+
+
+
+
 -- load all files into lua/plugins/*.lua
 
 local cfg = vim.fn.stdpath("config")
