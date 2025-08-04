@@ -41,4 +41,4 @@ end
 keymap.set("n", "gl", vim.diagnostic.open_float)
 keymap.set("n", "gd", lsp.buf.definition)
 keymap.set("n", "<C-k>", lsp.buf.signature_help)
-keymap.set("n", "K", function() lsp.buf.hover({ border = "single", max_height = 30, max_width = 120 }) end)
+keymap.set("n", "K", function() lsp.buf.hover({ border = "single", max_height = 30, max_width = 80 }) end)
