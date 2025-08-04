@@ -1,5 +1,6 @@
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
+vim.o.winborder = "rounded"
 vim.g.mapleader = " "
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -12,6 +13,7 @@ vim.opt.showtabline = 0
 
 vim.opt.ruler = true
 vim.opt.laststatus = 0
+vim.opt.completeopt = { "menuone", "noselect", "noinsert", "popup" }
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
