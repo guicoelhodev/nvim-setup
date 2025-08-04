@@ -15,5 +15,3 @@ for _, fname in ipairs(files) do
 		vim.notify("Error to run: " .. mod, vim.log.levels.ERROR)
 	end
 end
-
-require("mason").setup()
