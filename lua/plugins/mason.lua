@@ -7,6 +7,15 @@ vim.pack.add({
 require("mason").setup()
 
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "ts_ls" },
+	ensure_installed = {
+		"lua_ls",
+		"ts_ls",
+		"tailwindcss",
+		"html",
+		"angularls",
+		"dockerls",
+		"docker_compose_language_service",
+		"dotls",
+	},
 	automatic_enable = true,
 })

@@ -10,6 +10,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.breakindent = true
 vim.opt.signcolumn = "yes"
 vim.opt.showtabline = 0
+vim.o.backupcopy = "yes"
 
 vim.opt.ruler = true
 vim.opt.laststatus = 0
