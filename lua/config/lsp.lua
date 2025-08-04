@@ -17,6 +17,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
+vim.cmd("set completeopt+=noselect")
+
 vim.diagnostic.config({
 	virtual_lines = false,
 	virtual_text = {

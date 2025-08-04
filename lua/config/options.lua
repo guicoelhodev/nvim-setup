@@ -13,7 +13,9 @@ vim.opt.showtabline = 0
 
 vim.opt.ruler = true
 vim.opt.laststatus = 0
-vim.opt.completeopt = { "menuone", "noselect", "noinsert", "popup" }
+-- vim.opt.completeopt = { "menuone", "noselect", "noinsert", "popup" }
+
+vim.cmd(":hi statusline guibg=NONE")
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
