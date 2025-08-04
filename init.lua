@@ -22,10 +22,34 @@ require("mason-lspconfig").setup({
   automatic_enable = true,
 })
 
-vim.diagnostic.config({
-    virtual_lines = {
-        current_line = true,
-    },
+vim.opt.completeopt = { "menuone", "noselect", "noinsert", "popup" }
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(ev)
+    local bufnr = ev.buf
+    local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+    if not client then
+      return
+    end
+     -- nightly has inbuilt completions, this can replace all completion plugins
+    if client:supports_method("textDocument/completion", bufnr) then
+       -- Enable auto-completion
+      vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
+     end
+  end,
 })
---vim.lsp.enable('lua_ls')
+
+vim.diagnostic.config({
+    virtual_lines = false,
+  	virtual_text = {
+			spacing = 2,
+			prefix = "●",
+			source = false,
+			severity = vim.diagnostic.severity.ERROR,
+  	},
+})
+
+
+vim.keymap.set("n", "<C-p>", function() vim.diagnostic.jump({ count = 1, float = true }) end)
+vim.keymap.set("n", "<C-n>", function() vim.diagnostic.jump({ count =-1, float = true }) end)
 
