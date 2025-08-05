@@ -1,17 +1,21 @@
 vim.pack.add({
-	{ src = 'https://github.com/Saghen/blink.cmp',     version = '1.*' },
+	{
+		src = 'https://github.com/Saghen/blink.cmp',
+		version = '1.*',
+	},
 	{ src = 'https://github.com/neovim/nvim-lspconfig' },
+	{ src = 'https://github.com/L3MON4D3/LuaSnip' }
 })
 
 local blink = require("blink.cmp")
 
 blink.setup({
-	fuzzy = { implementation = 'lua' },
+	fuzzy = { implementation = "lua" },
 	signature = { enabled = true },
+	snippets = { preset = "luasnip" },
 	completion = {
 		documentation = { auto_show = false },
 		ghost_text = { enabled = false },
-		commit_character_behavior = 'auto',
 	},
 	sources = {
 		default = { "lsp", "path", "snippets", "buffer" },
