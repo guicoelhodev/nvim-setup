@@ -21,10 +21,19 @@ blink.setup({
 		default = { "lsp", "path", "snippets", "buffer" },
 	},
 	keymap = {
-		['<Tab>'] = { function(cmp) cmp.accept({ index = 1 }) end },
+		['<Tab>'] = {
+			function(cmp)
+				if cmp.snippet_active() then
+					return cmp.accept()
+				else
+					return cmp.select_and_accept()
+				end
+			end,
+			'snippet_forward', 'fallback' },
 		['<C-h>'] = { function(cmp) cmp.show_documentation() end },
 	}
 })
+
 
 local lspconfig = require("lspconfig")
 lspconfig.util.default_config.capabilities = vim.tbl_deep_extend(
