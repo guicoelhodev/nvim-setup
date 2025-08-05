@@ -40,11 +40,50 @@ local createAsyncFn = {
 	),
 }
 
+local createClass = {
+	s(
+		'cll', -- create class
+		fmt(
+			[[
+export class {} {{
+
+	constructor() {{ }}
+}};
+    ]],
+			{
+				i(1, ''),
+			}
+		)
+	),
+}
+
+local createClassI = {
+	s(
+		'clli', -- create class with implements
+		fmt(
+			[[
+export class {} implements {}Contract {{
+
+	constructor() {{ }}
+}};
+    ]],
+			{
+				i(1, ''),
+				rep(1)
+			}
+		)
+	),
+}
+
 -- console.logs
 ls.add_snippets('typescript', consoleLog)
 
 -- functions
 ls.add_snippets('typescript', createFn)
 ls.add_snippets('typescript', createAsyncFn)
+
+-- class
+ls.add_snippets('typescript', createClass)
+ls.add_snippets('typescript', createClassI)
 
 return {}
