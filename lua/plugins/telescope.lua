@@ -1,7 +1,6 @@
 vim.pack.add({
-	{ src = 'nvim-lua/plenary.nvim' },
-	{ src = 'nvim-telescope/telescope.nvim',          version = '0.1.8' }, -- tag opcional
-	{ src = 'nvim-telescope/telescope-ui-select.nvim' },
+	{ src = 'https://github.com/nvim-telescope/telescope.nvim',          version = '0.1.8' }, -- tag opcional
+	{ src = 'https://github.com/nvim-telescope/telescope-ui-select.nvim' },
 })
 
 local telescope = require('telescope')

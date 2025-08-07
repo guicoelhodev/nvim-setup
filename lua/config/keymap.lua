@@ -11,3 +11,5 @@ keymap.set("n", "<Space>x", ":bd<CR>", opts)
 keymap.set("x", "P", '"_dP')
 keymap.set("n", "C", "ciw")
 keymap.set("n", "T", ":%s/\\C")
+
+keymap.set("n", "S", ":w<CR>")
