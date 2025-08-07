@@ -7,6 +7,12 @@
 
 This config use `native package manager` and minimal LSP setup.
 
+- Before, remove all local cache to prevent conflict errors
+
+```
+rm -rf ~/.config/nvim ~/.local/share/nvim ~/.cache/nvim
+```
+
 - To install this:
 
 ```
