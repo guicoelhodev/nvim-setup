@@ -1,6 +1,5 @@
 vim.pack.add({
-	{ src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
-	{ src = 'https://github.com/OXY2DEV/markview.nvim' }
+	{ src = 'https://github.com/brianhuster/live-preview.nvim' },
 })
 
-require('markview').setup()
+require('live-preview').setup()
