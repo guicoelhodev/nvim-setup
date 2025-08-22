@@ -10,7 +10,12 @@ vim.pack.add({
 local blink = require("blink.cmp")
 
 blink.setup({
-	fuzzy = { implementation = "lua" },
+	fuzzy = {
+		implementation = "prefer_rust",
+		prebuilt_binaries = {
+			force_version = "v1.6.0"
+		}
+	},
 	signature = { enabled = true },
 	snippets = { preset = "luasnip" },
 	completion = {
