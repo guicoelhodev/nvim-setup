@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
 		end
 
-		map("n", "gd", vim.lsp.buf.definition, "LSP: goto definition")
+		-- map("n", "gd", vim.lsp.buf.definition, "LSP: goto definition")
 		map("n", "gl", vim.diagnostic.open_float, "LSP: show diagnostic")
 		map("n", "<C-k>", vim.lsp.buf.signature_help, "LSP: signature help")
 		map("n", "K", function()
@@ -31,4 +31,11 @@ vim.diagnostic.config({
 		source = false,
 		severity = vim.diagnostic.severity.ERROR,
 	},
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "lspinfo", -- If your LSP results are displayed in a specific window type
+  callback = function()
+    vim.keymap.set("n", "e", "<CR>:q<CR>", { buffer = true, silent = true })
+  end,
 })
