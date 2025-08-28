@@ -14,7 +14,7 @@ keymap.set("n", "T", ":%s/\\C")
 
 keymap.set("n", "S", ":w<CR>")
 
-vim.keymap.set("n", "lw", function()
+vim.keymap.set("n", "ml", function()
 	local word = vim.fn.expand("<cword>")
 	vim.cmd("/" .. word)
 end, { noremap = true, silent = false })
