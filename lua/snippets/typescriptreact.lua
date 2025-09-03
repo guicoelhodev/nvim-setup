@@ -117,7 +117,6 @@ for _, element in ipairs(commonTags) do
 end
 
 ls.add_snippets('typescriptreact', snippets)
-ls.add_snippets('html', snippets)
 
 ------------------------------------------------- LARGE SNIPPETS -----------------------------------------------
 
