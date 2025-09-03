@@ -12,7 +12,12 @@ keymap.set("x", "P", '"_dP')
 keymap.set("n", "C", "ciw")
 keymap.set("n", "T", ":%s/\\C")
 
-keymap.set("n", "S", ":w<CR>")
+keymap.set("n", "<C-s>", ":w<CR>");
+keymap.set("n", "S", ":w<CR>");
+
+keymap.set("n", "mf", function ()
+	vim.lsp.buf.format({ async = true })
+end)
 
 vim.keymap.set("n", "ml", function()
 	local word = vim.fn.expand("<cword>")
