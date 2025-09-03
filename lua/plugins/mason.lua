@@ -11,6 +11,7 @@ require("mason-lspconfig").setup({
 		"lua_ls",
 		"ts_ls",
 		"tailwindcss",
+		"cssls",
 		"html",
 		"angularls",
 		"dockerls",
