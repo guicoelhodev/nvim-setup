@@ -13,10 +13,10 @@ keymap.set("n", "C", "ciw")
 keymap.set("n", "T", ":%s/\\C")
 
 keymap.set("n", "<C-s>", ":w<CR>");
-keymap.set("n", "S", ":w<CR>");
 
-keymap.set("n", "mf", function ()
-	vim.lsp.buf.format({ async = true })
+keymap.set("n", "S", function ()
+	vim.lsp.buf.format({ async = false })
+	vim.cmd("w")
 end)
 
 vim.keymap.set("n", "ml", function()
