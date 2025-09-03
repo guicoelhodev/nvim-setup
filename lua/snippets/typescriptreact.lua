@@ -106,9 +106,15 @@ ls.add_snippets('typescriptreact', {
 
 ------------------------------------------------- CREATE HTML TAGS ------------------------------------------
 
-local commonTags =
-{ 'div', 'section', 'article', 'header', 'footer', 'aside', 'main', 'ul', 'li', 'ol', 'p', 'span', 'h1', 'h2', 'h3', 'h4',
-	'h5', 'h6', 'img' }
+local commonTags = {
+  'div', 'section', 'article', 'header', 'footer', 'aside', 'main', 'nav',
+  'ul', 'li', 'ol',
+  'p', 'span', 'a',
+  'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+  'img', 'figure', 'figcaption',
+  'form', 'input', 'label', 'button', 'textarea', 'select', 'option',
+  'table', 'thead', 'tbody', 'tr', 'td', 'th'
+}
 
 local snippets = {}
 
