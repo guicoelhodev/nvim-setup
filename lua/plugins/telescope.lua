@@ -5,6 +5,15 @@ vim.pack.add({
 
 local telescope = require('telescope')
 telescope.setup({
+	defaults = {
+		layout_config = {
+			horizontal = {
+				width = 0.95,
+				preview_width = 0.6
+			}
+		}
+
+	},
 	extensions = {
 		["ui-select"] = {
 			require('telescope.themes').get_dropdown({}) -- define o dropdown
