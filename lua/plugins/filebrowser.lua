@@ -3,17 +3,17 @@ vim.pack.add({
 })
 
 vim.pack.add({
-	{ src = "https://github.com/nvim-telescope/telescope-file-browser.nvim"}
+	{ src = "https://github.com/nvim-telescope/telescope-file-browser.nvim" }
 })
 
-vim.keymap.set("n", "fa", function ()
+vim.keymap.set("n", "fa", function()
 	require('telescope').extensions.file_browser.file_browser({
 		initial_mode = "normal"
 	})
 end)
 
 
-vim.keymap.set("n", "fj", function ()
+vim.keymap.set("n", "fj", function()
 	require('telescope').extensions.file_browser.file_browser({
 		initial_mode = "normal",
 		select_buffer = true,
@@ -21,4 +21,3 @@ vim.keymap.set("n", "fj", function ()
 		hidden = true
 	})
 end)
-

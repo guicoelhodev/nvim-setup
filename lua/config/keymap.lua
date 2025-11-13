@@ -14,8 +14,14 @@ keymap.set("n", "T", ":%s/\\C")
 
 keymap.set("n", "<C-s>", ":w<CR>");
 
-keymap.set("n", "S", function ()
+keymap.set("n", "S", function()
 	vim.lsp.buf.format({ async = false })
+
+	require('conform').format({
+		async = false,
+		lsp_fallback = true
+	})
+
 	vim.cmd("w")
 end)
 
