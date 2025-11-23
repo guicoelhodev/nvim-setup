@@ -11,7 +11,7 @@ local blink = require("blink.cmp")
 
 blink.setup({
 	fuzzy = {
-		implementation = "prefer_rust",
+		implementation = "rust",
 		prebuilt_binaries = {
 			force_version = "v1.6.0"
 		}
