@@ -11,8 +11,9 @@ vim.opt.breakindent = true
 vim.opt.signcolumn = "yes"
 vim.opt.showtabline = 0
 vim.o.backupcopy = "yes"
-vim.opt.cmdheight = 0
+vim.opt.cmdheight = 1
 vim.opt.linebreak = true
+vim.opt.showcmd = true
 
 vim.opt.ruler = true
 vim.opt.laststatus = 0

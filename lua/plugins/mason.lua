@@ -14,9 +14,11 @@ require("mason-lspconfig").setup({
 		"cssls",
 		"html",
 		"angularls",
+		"gopls",
 		"dockerls",
 		"docker_compose_language_service",
 		"dotls",
 	},
 	automatic_enable = true,
 })
+
