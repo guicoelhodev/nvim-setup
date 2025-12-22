@@ -1,0 +1,53 @@
+vim.pack.add({
+	{ src = 'https://github.com/zbirenbaum/copilot.lua'},
+	{ src = 'https://github.com/copilotlsp-nvim/copilot-lsp'},
+})
+
+require('copilot').setup({
+  panel = {
+    enabled = true,
+    auto_refresh = false,
+    keymap = {
+      jump_prev = "[[",
+      jump_next = "]]",
+      accept = "<CR>",
+      refresh = "gr",
+      open = "<M-CR>"
+    },
+    layout = {
+      position = "bottom", -- bottom, top, left, right
+      ratio = 0.4
+    },
+  },
+  suggestion = {
+    enabled = true,
+    auto_trigger = true,
+    hide_during_completion = true,
+    debounce = 75,
+    keymap = {
+      accept = "<Tab>",
+      accept_word = false,
+      accept_line = false,
+      next = "<M-]>",
+      prev = "<M-[>",
+      dismiss = "<C-]>",
+    },
+  },
+  filetypes = {
+    yaml = true,
+    markdown = true,
+    help = false,
+    gitcommit = false,
+    gitrebase = false,
+    hgcommit = false,
+    svn = false,
+    cvs = false,
+    ["."] = false,
+  },
+  copilot_node_command = 'node', -- Node.js precisa ser > v18
+  server_opts_overrides = {},
+})
+
+vim.keymap.set('n', '<leader>cf', '<cmd>Copilot enable<CR>', { desc = 'Copilot Enable' })
+vim.keymap.set('n', '<leader>cd', '<cmd>Copilot disable<CR>', { desc = 'Copilot Disable' })
+
