@@ -4,6 +4,7 @@ return {
 		dependencies = {
 			'neovim/nvim-lspconfig',
 			'mason-org/mason-lspconfig.nvim',
+			'WhoIsSethDaniel/mason-tool-installer.nvim',
 		},
 		config = function()
 			require("mason").setup()
@@ -22,6 +23,13 @@ return {
 					"dotls",
 				},
 				automatic_enable = true,
+			})
+
+			require("mason-tool-installer").setup({
+				ensure_installed = {
+					"prettier",
+					"stylua",
+				},
 			})
 		end,
 	},
