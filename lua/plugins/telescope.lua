@@ -10,6 +10,7 @@ return {
 			local telescope = require('telescope')
 			telescope.setup({
 				defaults = {
+					border = false,
 					layout_config = {
 						horizontal = {
 							width = 0.95,

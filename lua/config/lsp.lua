@@ -10,7 +10,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		map("n", "gl", vim.diagnostic.open_float, "LSP: show diagnostic")
 		map("n", "<C-k>", vim.lsp.buf.signature_help, "LSP: signature help")
 		map("n", "K", function()
-			vim.lsp.buf.hover({ border = "single", max_height = 30, max_width = 80 })
+			local width = math.floor(vim.o.columns * 0.8)
+			vim.lsp.buf.hover({ border = "single", max_height = 30, max_width = width })
 		end, "LSP: hover doc")
 		map("n", "<C-s>", function()
 			vim.lsp.buf.format()
@@ -30,6 +31,10 @@ vim.diagnostic.config({
 		prefix = "●",
 		source = false,
 		severity = vim.diagnostic.severity.ERROR,
+	},
+	float = {
+		max_width = math.floor(vim.o.columns * 0.8),
+		max_height = math.floor(vim.o.lines * 0.8),
 	},
 })
 

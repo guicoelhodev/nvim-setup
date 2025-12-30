@@ -13,6 +13,7 @@ vim.o.backupcopy = "yes"
 vim.opt.cmdheight = 1
 vim.opt.linebreak = true
 vim.opt.showcmd = true
+vim.o.winborder = 'rounded'
 
 vim.opt.ruler = true
 vim.opt.laststatus = 0
