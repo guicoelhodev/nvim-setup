@@ -1,5 +1,8 @@
-vim.pack.add({
-	{ src = 'https://github.com/brianhuster/live-preview.nvim' },
-})
-
-require('live-preview').setup()
+return {
+	{
+		'brianhuster/live-preview.nvim',
+		config = function()
+			require('live-preview').setup()
+		end,
+	},
+}

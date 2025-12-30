@@ -1,22 +1,23 @@
-vim.pack.add({
+return {
 	{
-		src = "https://github.com/nvim-treesitter/nvim-treesitter",
-	},
-})
+		"nvim-treesitter/nvim-treesitter",
+		build = ":TSUpdate",
+		config = function()
+			local treesitter = require("nvim-treesitter.configs")
 
-local treesitter = require("nvim-treesitter.configs")
-
-treesitter.setup({
-	ensure_installed = {},
-	sync_install = false,
-	auto_install = true,
-	ignore_install = {},
-	modules = {},
-	highlight = {
-		enable = true,
+			treesitter.setup({
+				ensure_installed = {},
+				sync_install = false,
+				auto_install = true,
+				ignore_install = {},
+				modules = {},
+				highlight = {
+					enable = true,
+				},
+				indent = {
+					enable = true,
+				},
+			})
+		end,
 	},
-
-	indent = {
-		enable = true,
-	},
-})
+}

@@ -1,5 +1,10 @@
-vim.pack.add({
-	{ src = 'https://github.com/folke/tokyonight.nvim' },
-})
-
-vim.cmd [[colorscheme tokyonight-night]]
+return {
+	{
+		'folke/tokyonight.nvim',
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd [[colorscheme tokyonight-night]]
+		end,
+	},
+}

@@ -1,3 +1,9 @@
-vim.pack.add({
-	{ src = 'https://github.com/chomosuke/typst-preview.nvim'}
-})
+return {
+	{
+		'chomosuke/typst-preview.nvim',
+		ft = 'typst',
+		build = function()
+			require('typst-preview').update()
+		end,
+	},
+}
