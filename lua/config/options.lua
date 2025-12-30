@@ -1,6 +1,5 @@
 vim.o.tabstop = 2
 vim.o.shiftwidth = 2
-vim.o.winborder = "rounded"
 vim.g.mapleader = " "
 vim.opt.number = true
 vim.opt.relativenumber = true
