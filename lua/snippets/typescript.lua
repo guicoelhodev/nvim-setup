@@ -75,6 +75,34 @@ export class {} implements {}Contract {{
 	),
 }
 
+local angularComponent = {
+	s(
+		'angularcomp',
+		fmt(
+			[[
+import {{ Component }} from '@angular/core';
+
+@Component({{
+  selector: 'app-{}',
+  standalone: true,
+  imports: [],
+  templateUrl: './{}.component.html',
+  styleUrl: './{}.component.scss'
+}})
+export class {}Component {{
+
+}}
+]],
+			{
+				i(1, 'name'),
+				rep(1),
+				rep(1),
+				i(2, 'Name'),
+			}
+		)
+	),
+}
+
 -- console.logs
 ls.add_snippets('typescript', consoleLog)
 
@@ -85,5 +113,8 @@ ls.add_snippets('typescript', createAsyncFn)
 -- class
 ls.add_snippets('typescript', createClass)
 ls.add_snippets('typescript', createClassI)
+
+-- angular
+ls.add_snippets('typescript', angularComponent)
 
 return {}

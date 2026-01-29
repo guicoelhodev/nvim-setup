@@ -17,8 +17,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.lsp.buf.format()
 			vim.cmd("write")
 		end, "LSP: format and save")
-		map("n", "<C-p>", function() vim.diagnostic.jump({ count = 1, float = true }) end, "LSP: next diagnostic")
-		map("n", "<C-n>", function() vim.diagnostic.jump({ count = -1, float = true }) end, "LSP: previous diagnostic")
+	map("n", "<C-p>", function() vim.diagnostic.jump({ count = 1, float = true }) end, "LSP: next diagnostic")
+	map("n", "<C-n>", function() vim.diagnostic.jump({ count = -1, float = true }) end, "LSP: previous diagnostic")
 	end,
 })
 
