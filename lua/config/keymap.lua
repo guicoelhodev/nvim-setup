@@ -2,8 +2,8 @@ local opts = { noremap = true, silent = true }
 
 local keymap = vim.keymap
 
-keymap.set('n', '<leader>e', ':Ex <CR>')
-keymap.set('n', '<C-u>', ':so <CR>')
+keymap.set("n", "<leader>e", ":Ex <CR>")
+keymap.set("n", "<C-u>", ":so <CR>")
 
 keymap.set("i", "jj", "<ESC>", opts)
 keymap.set("n", "<leader>x", ":bd<CR>", opts)
@@ -12,14 +12,14 @@ keymap.set("x", "P", '"_dP')
 keymap.set("n", "C", "ciw")
 keymap.set("n", "T", ":%s/\\C")
 
-keymap.set("n", "<C-s>", ":w<CR>");
+keymap.set("n", "<C-s>", ":w<CR>")
 
 keymap.set("n", "S", function()
 	vim.lsp.buf.format({ async = false })
 
-	require('conform').format({
+	require("conform").format({
 		async = false,
-		lsp_fallback = true
+		lsp_fallback = true,
 	})
 
 	vim.cmd("w")
@@ -29,3 +29,8 @@ vim.keymap.set("n", "ml", function()
 	local word = vim.fn.expand("<cword>")
 	vim.cmd("/" .. word)
 end, { noremap = true, silent = false })
+
+-- AI Copy Context
+keymap.set("x", "Y", function()
+	require("config.ai-copy-context").send_to_claude()
+end, { noremap = true, silent = true, desc = "Copy context to AI" })
