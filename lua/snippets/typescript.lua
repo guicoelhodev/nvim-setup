@@ -1,8 +1,15 @@
 local ls = require 'luasnip'
 local s = ls.snippet
 local i = ls.insert_node
+local f = ls.function_node
 local fmt = require('luasnip.extras.fmt').fmt
 local rep = require('luasnip.extras').rep
+
+-- Convert kebab-case to PascalCase
+local function toPascalCase(args)
+	local str = args[1][1]
+	return str:gsub("%-(%w)", function(c) return c:upper() end):gsub("^%w", string.upper)
+end
 
 local consoleLog = {
 	s('clog', fmt([[console.log('{}', {})]], { i(1, ''), rep(1) })),
@@ -97,7 +104,7 @@ export class {}Component {{
 				i(1, 'name'),
 				rep(1),
 				rep(1),
-				i(2, 'Name'),
+				f(toPascalCase, {1}),
 			}
 		)
 	),
