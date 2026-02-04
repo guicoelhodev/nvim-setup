@@ -1,9 +1,9 @@
 return {
 	{
-		'andweeb/presence.nvim',
-		enabled = false, -- Desabilitado por padrão (estava comentado)
+		"andweeb/presence.nvim",
+		enabled = true,
 		config = function()
-			-- require('presence').setup({})
+			require("presence").setup({})
 		end,
 	},
 }
