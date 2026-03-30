@@ -1,7 +1,7 @@
 return {
 	{
 		'nvim-telescope/telescope.nvim',
-		version = '0.1.8',
+		-- version = '0.1.8', -- desabilitado para compatibilidade com nvim-treesitter novo
 		dependencies = {
 			'nvim-lua/plenary.nvim',
 			'nvim-telescope/telescope-ui-select.nvim',
