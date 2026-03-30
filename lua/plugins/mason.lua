@@ -17,7 +17,7 @@ return {
 					"cssls",
 					"html",
 					"angularls",
-					"gopls",
+					-- "gopls",
 					"dockerls",
 					"docker_compose_language_service",
 					"dotls",
