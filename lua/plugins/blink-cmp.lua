@@ -19,8 +19,9 @@ return {
 				signature = { enabled = true },
 				snippets = { preset = "luasnip" },
 				completion = {
-					documentation = { auto_show = false },
+					documentation = { auto_show = false, window = { border = "rounded", max_width = 60, min_width = 30 } },
 					ghost_text = { enabled = false },
+					menu = { border = "rounded" },
 				},
 				sources = {
 					default = { "lsp", "path", "snippets", "buffer" },
