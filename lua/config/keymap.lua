@@ -25,6 +25,9 @@ keymap.set("n", "S", function()
 	vim.cmd("w")
 end)
 
+keymap.set("n", "<leader>df", ":DiffviewOpen<CR>", opts)
+keymap.set("n", "<leader>ds", ":DiffviewClose<CR>", opts)
+
 vim.keymap.set("n", "ml", function()
 	local word = vim.fn.expand("<cword>")
 	vim.cmd("/" .. word)
