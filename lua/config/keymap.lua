@@ -35,5 +35,6 @@ end, { noremap = true, silent = false })
 
 -- AI Copy Context
 keymap.set("x", "Y", function()
+	vim.cmd("normal! \27")
 	require("config.ai-copy-context").send_to_claude()
 end, { noremap = true, silent = true, desc = "Copy context to AI" })
