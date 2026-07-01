@@ -26,7 +26,7 @@ function M.send_to_claude()
 	vim.fn.setreg("+", formatted)
 	vim.fn.setreg("*", formatted)
 
-	vim.notify("Reference copied: " .. display_ref, vim.log.levels.INFO)
+	vim.api.nvim_echo({ { "Copied: " .. display_ref, "None" } }, false, {})
 end
 
 return M
