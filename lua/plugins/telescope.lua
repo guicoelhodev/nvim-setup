@@ -32,7 +32,11 @@ return {
 				builtin.find_files({
 					hidden = true,
 					no_ignore = true,
-					find_command = { 'rg', '--files', '--color', 'never', '--glob', '!**/.git/**' },
+					find_command = {
+						'rg', '--files', '--color', 'never',
+						'--glob', '!**/.git/**',
+						'--glob', '!**/node_modules/**',
+					},
 				})
 			end, { desc = '[F]ind [F]iles (Telescope)' })
 			vim.keymap.set('n', 'fw', builtin.live_grep, { desc = '[F]ind by [G]rep (Telescope)' })
