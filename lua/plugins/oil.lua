@@ -13,6 +13,21 @@ return {
 				["h"] = { "actions.parent", mode = "n" },
 				["l"] = { "actions.select", mode = "n" },
 				["q"] = { "actions.close", mode = "n" },
+				["cc"] = {
+					desc = "Copy relative path",
+					mode = "n",
+					callback = function()
+						local oil = require("oil")
+						local entry = oil.get_cursor_entry()
+						local dir = oil.get_current_dir()
+						if not entry or not dir then
+							return
+						end
+						local path = vim.fn.fnamemodify(dir .. entry.name, ":.")
+						vim.fn.setreg("+", path)
+						vim.notify("Copied: " .. path)
+					end,
+				},
 			},
 		},
 		keys = {
