@@ -57,6 +57,34 @@ local function open_filter()
 	set_filter(ok and value ~= cancelled and value or previous_filter)
 end
 
+local function close_oil()
+	local oil = require("oil")
+	for _, bufnr in ipairs(require("oil.view").get_all_buffers()) do
+		if vim.bo[bufnr].modified then
+			local winid = vim.api.nvim_get_current_win()
+			local oil_bufnr = vim.api.nvim_get_current_buf()
+			local function finish_close(err)
+				if err then
+					vim.notify(err, vim.log.levels.ERROR)
+					return
+				end
+				if vim.api.nvim_win_is_valid(winid) and vim.api.nvim_win_get_buf(winid) == oil_bufnr then
+					vim.api.nvim_win_call(winid, oil.close)
+				end
+			end
+			oil.save({ confirm = true }, function(err)
+				if err == "Canceled" then
+					require("oil.view").rerender_all_oil_buffers(nil, finish_close)
+				else
+					finish_close(err)
+				end
+			end)
+			return
+		end
+	end
+	oil.close()
+end
+
 return {
 	{
 		"stevearc/oil.nvim",
@@ -91,7 +119,11 @@ return {
 						navigate("select")
 					end,
 				},
-				["q"] = { "actions.close", mode = "n" },
+				["q"] = {
+					desc = "Confirm or discard changes and close Oil",
+					mode = "n",
+					callback = close_oil,
+				},
 				["f"] = {
 					desc = "Filter entries by name",
 					mode = "n",
