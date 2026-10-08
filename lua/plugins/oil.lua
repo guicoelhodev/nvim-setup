@@ -1,3 +1,15 @@
+local filter = ""
+
+local function set_filter(value)
+	if vim.bo.modified then
+		vim.notify("Save or discard changes before filtering", vim.log.levels.WARN)
+		return
+	end
+	filter = value or ""
+	require("oil.view").rerender_all_oil_buffers({ refetch = false })
+	vim.notify(filter == "" and "Filter cleared" or ("Filter: " .. filter))
+end
+
 return {
 	{
 		"stevearc/oil.nvim",
@@ -5,6 +17,14 @@ return {
 		opts = {
 			default_file_explorer = false,
 			delete_to_trash = true,
+			view_options = {
+				is_always_hidden = function(name)
+					if filter == "" or name == ".." then
+						return false
+					end
+					return not name:lower():find(filter:lower(), 1, true)
+				end,
+			},
 			float = {
 				max_width = 0.8,
 				preview_split = "right",
@@ -13,6 +33,25 @@ return {
 				["h"] = { "actions.parent", mode = "n" },
 				["l"] = { "actions.select", mode = "n" },
 				["q"] = { "actions.close", mode = "n" },
+				["f"] = {
+					desc = "Filter entries by name",
+					mode = "n",
+					nowait = true,
+					callback = function()
+						vim.ui.input({ prompt = "Filter: ", default = filter }, function(input)
+							if input ~= nil then
+								set_filter(input)
+							end
+						end)
+					end,
+				},
+				["g\\"] = {
+					desc = "Clear filter",
+					mode = "n",
+					callback = function()
+						set_filter("")
+					end,
+				},
 				["cc"] = {
 					desc = "Copy relative path",
 					mode = "n",
@@ -23,7 +62,7 @@ return {
 						if not entry or not dir then
 							return
 						end
-						local path = vim.fn.fnamemodify(dir .. entry.name, ":.")
+						local path = "@" .. vim.fn.fnamemodify(dir .. entry.name, ":.")
 						vim.fn.setreg("+", path)
 						vim.notify("Copied: " .. path)
 					end,
